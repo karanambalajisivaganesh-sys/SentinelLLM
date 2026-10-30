@@ -1,0 +1,95 @@
+{
+  "model": "TF-IDF + LogisticRegression(class_weight='balanced')",
+  "training_rows": 7572,
+  "validation_rows": 941,
+  "test_rows": 942,
+  "training_label_counts": {
+    "0": 1741,
+    "1": 5831
+  },
+  "validation_label_counts": {
+    "0": 407,
+    "1": 534
+  },
+  "test_label_counts": {
+    "0": 390,
+    "1": 552
+  },
+  "threshold_selection": "Maximize attack F1 on validation split; tie-break by recall then precision.",
+  "selected_threshold_from_validation": 0.5,
+  "best_validation_metrics": {
+    "threshold": 0.5,
+    "accuracy": 0.9564293304994687,
+    "precision_attack": 0.955637707948244,
+    "recall_attack": 0.9681647940074907,
+    "f1_attack": 0.9618604651162791,
+    "confusion_matrix_labels_order": [
+      "actual_benign_0",
+      "actual_attack_1"
+    ],
+    "confusion_matrix": [
+      [
+        383,
+        24
+      ],
+      [
+        17,
+        517
+      ]
+    ],
+    "roc_auc": 0.9918237951945817
+  },
+  "test_metrics_threshold_0_50": {
+    "threshold": 0.5,
+    "accuracy": 0.9479830148619958,
+    "precision_attack": 0.9467140319715808,
+    "recall_attack": 0.9655797101449275,
+    "f1_attack": 0.9560538116591928,
+    "confusion_matrix_labels_order": [
+      "actual_benign_0",
+      "actual_attack_1"
+    ],
+    "confusion_matrix": [
+      [
+        360,
+        30
+      ],
+      [
+        19,
+        533
+      ]
+    ],
+    "roc_auc": 0.990589000371609
+  },
+  "test_metrics_validation_selected_threshold": {
+    "threshold": 0.5,
+    "accuracy": 0.9479830148619958,
+    "precision_attack": 0.9467140319715808,
+    "recall_attack": 0.9655797101449275,
+    "f1_attack": 0.9560538116591928,
+    "confusion_matrix_labels_order": [
+      "actual_benign_0",
+      "actual_attack_1"
+    ],
+    "confusion_matrix": [
+      [
+        360,
+        30
+      ],
+      [
+        19,
+        533
+      ]
+    ],
+    "roc_auc": 0.990589000371609
+  },
+  "test_classification_report_threshold_0_50": "              precision    recall  f1-score   support\n\n      benign     0.9499    0.9231    0.9363       390\n      attack     0.9467    0.9656    0.9561       552\n\n    accuracy                         0.9480       942\n   macro avg     0.9483    0.9443    0.9462       942\nweighted avg     0.9480    0.9480    0.9479       942\n",
+  "test_classification_report_validation_selected_threshold": "              precision    recall  f1-score   support\n\n      benign     0.9499    0.9231    0.9363       390\n      attack     0.9467    0.9656    0.9561       552\n\n    accuracy                         0.9480       942\n   macro avg     0.9483    0.9443    0.9462       942\nweighted avg     0.9480    0.9480    0.9479       942\n",
+  "cautions": [
+    "This is a baseline, not proof of production readiness.",
+    "The training set includes archive attack prompts while validation/test are official Parquet rows; check source/domain shift.",
+    "Exact and semantic duplicate checks are still important.",
+    "Do not change the model or threshold based on test results; use validation for iteration.",
+    "The classifier predicts text patterns, not guaranteed malicious intent; keep rule-based and other safety layers."
+  ]
+}

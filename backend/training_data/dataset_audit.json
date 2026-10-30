@@ -1,0 +1,28 @@
+{
+  "dataset_rows": 52000,
+  "unique_texts": 52000,
+  "class_counts": {
+    "0": 26000,
+    "1": 26000
+  },
+  "exact_duplicate_count": 0,
+  "normalized_duplicate_rows": 7,
+  "help_word_rows": 15606,
+  "distinct_categories": 145,
+  "distinct_topics": 86,
+  "distinct_families": 6802,
+  "source_type_counts": {
+    "synthetic_diverse_v4": 18600,
+    "synthetic_template": 14600,
+    "synthetic_diverse_v3": 8500,
+    "synthetic_template_v2": 5000,
+    "help_word_hard_negative_v1": 2000,
+    "contrastive_hard_negative_v3": 1000,
+    "human_reviewed_style_synthetic_v3": 500,
+    "unsafe_contrastive_v4": 500,
+    "hard_negative_contrastive_v4": 500,
+    "help_context_refinement_v1": 400,
+    "curated_short_synthetic_v1": 400
+  },
+  "sha256": "de5fb9ad238dc9ccbe6e8f3f894288916a74ebae381af00c7a8ce7ff3a349af4"
+}

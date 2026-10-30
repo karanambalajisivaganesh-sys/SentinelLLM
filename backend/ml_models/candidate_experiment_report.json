@@ -1,0 +1,154 @@
+{
+  "timestamp": "2026-10-19 15:48:06",
+  "splits": {
+    "train_rows": 7572,
+    "validation_rows": 941,
+    "test_rows": 942
+  },
+  "validation_comparison": [
+    {
+      "model_name": "TF-IDF + Logistic Regression (Baseline)",
+      "feature_representation": "Word TF-IDF (1,2-grams, max 200k features, sublinear_tf)",
+      "hyperparameters": "max_iter=2000, class_weight='balanced', solver='liblinear', random_state=42",
+      "training_time_sec": null,
+      "latency_ms_per_prompt": 0.092,
+      "artifact_size_mb": 0.55,
+      "threshold": 0.5,
+      "accuracy": 0.9564293304994687,
+      "precision_attack": 0.955637707948244,
+      "recall_attack": 0.9681647940074907,
+      "f1_attack": 0.9618604651162791,
+      "precision_benign": 0.9575,
+      "recall_benign": 0.941031941031941,
+      "f1_benign": 0.9491945477075588,
+      "macro_f1": 0.955527506411919,
+      "confusion_matrix": [
+        [
+          383,
+          24
+        ],
+        [
+          17,
+          517
+        ]
+      ],
+      "tn": 383,
+      "fp": 24,
+      "fn": 17,
+      "tp": 517,
+      "fpr": 0.059,
+      "fnr": 0.0318,
+      "roc_auc": 0.9918,
+      "pr_auc": 0.9936
+    },
+    {
+      "model_name": "Random Forest",
+      "feature_representation": "Word TF-IDF (1,2-grams, min_df=3, max 25k features, sublinear_tf)",
+      "hyperparameters": "n_estimators=150, max_depth=45, class_weight='balanced', random_state=42, n_jobs=-1",
+      "training_time_sec": 0.91,
+      "latency_ms_per_prompt": 0.508,
+      "artifact_size_mb": 5.49,
+      "threshold": 0.35,
+      "accuracy": 0.9479277364505845,
+      "precision_attack": 0.9261862917398945,
+      "recall_attack": 0.9868913857677902,
+      "f1_attack": 0.9555757026291931,
+      "precision_benign": 0.9811827956989247,
+      "recall_benign": 0.8968058968058968,
+      "f1_benign": 0.9370988446726572,
+      "macro_f1": 0.9463372736509252,
+      "confusion_matrix": [
+        [
+          365,
+          42
+        ],
+        [
+          7,
+          527
+        ]
+      ],
+      "tn": 365,
+      "fp": 42,
+      "fn": 7,
+      "tp": 527,
+      "fpr": 0.1032,
+      "fnr": 0.0131,
+      "roc_auc": 0.9833,
+      "pr_auc": 0.9857
+    },
+    {
+      "model_name": "XGBoost",
+      "feature_representation": "Word TF-IDF (1,2-grams, min_df=3, max 25k features, sublinear_tf)",
+      "hyperparameters": "n_estimators=200, max_depth=6, learning_rate=0.15, scale_pos_weight=0.2986, subsample=0.8, colsample_bytree=0.8, random_state=42, n_jobs=-1",
+      "training_time_sec": 5.48,
+      "latency_ms_per_prompt": 0.138,
+      "artifact_size_mb": 0.57,
+      "threshold": 0.15,
+      "accuracy": 0.9479277364505845,
+      "precision_attack": 0.9322638146167558,
+      "recall_attack": 0.9794007490636704,
+      "f1_attack": 0.9552511415525115,
+      "precision_benign": 0.9710526315789474,
+      "recall_benign": 0.9066339066339066,
+      "f1_benign": 0.9377382465057179,
+      "macro_f1": 0.9464946940291147,
+      "confusion_matrix": [
+        [
+          369,
+          38
+        ],
+        [
+          11,
+          523
+        ]
+      ],
+      "tn": 369,
+      "fp": 38,
+      "fn": 11,
+      "tp": 523,
+      "fpr": 0.0934,
+      "fnr": 0.0206,
+      "roc_auc": 0.9855,
+      "pr_auc": 0.9889
+    }
+  ],
+  "selected_model": {
+    "model_name": "TF-IDF + Logistic Regression (Baseline)",
+    "threshold": 0.5,
+    "selection_rationale": "Selected strictly on validation data based on highest Attack F1 score, maximizing attack detection recall while keeping false negative and false alarm rates minimal."
+  },
+  "final_test_evaluation": {
+    "model_evaluated": "TF-IDF + Logistic Regression (Baseline)",
+    "threshold": 0.5,
+    "metrics": {
+      "threshold": 0.5,
+      "accuracy": 0.9479830148619958,
+      "precision_attack": 0.9467140319715808,
+      "recall_attack": 0.9655797101449275,
+      "f1_attack": 0.9560538116591928,
+      "precision_benign": 0.9498680738786279,
+      "recall_benign": 0.9230769230769231,
+      "f1_benign": 0.9362808842652796,
+      "macro_f1": 0.9461673479622361,
+      "confusion_matrix": [
+        [
+          360,
+          30
+        ],
+        [
+          19,
+          533
+        ]
+      ],
+      "tn": 360,
+      "fp": 30,
+      "fn": 19,
+      "tp": 533,
+      "fpr": 0.0769,
+      "fnr": 0.0344,
+      "roc_auc": 0.9906,
+      "pr_auc": 0.9935
+    },
+    "classification_report": "              precision    recall  f1-score   support\n\n      benign     0.9499    0.9231    0.9363       390\n      attack     0.9467    0.9656    0.9561       552\n\n    accuracy                         0.9480       942\n   macro avg     0.9483    0.9443    0.9462       942\nweighted avg     0.9480    0.9480    0.9479       942\n"
+  }
+}

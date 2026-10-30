@@ -1,0 +1,10 @@
+fastapi>=0.100.0,<1.0.0
+uvicorn[standard]>=0.22.0
+pydantic>=2.0.0,<3.0.0
+# Keep this version aligned with the serialized active joblib model.
+scikit-learn==1.8.0
+joblib>=1.4.0
+pandas>=2.0.0
+numpy>=1.26.0
+# Needed only for the optional legacy XGBoost candidate-model regression test.
+xgboost>=2.0.0

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment & Build outputs
+.env
+.venv/
+venv/
+ENV/
+dist/
+build/
+
+# IDE / System
+.vscode/
+.idea/
+.DS_Store
+*.log
+# Secrets and credentials
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Python environments
+.python-version
+
+# Test and cache files
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
